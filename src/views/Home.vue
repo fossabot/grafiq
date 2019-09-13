@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <LoadExcelFile @export="printExported" />
+    <ul>
+      <li v-for="item in exportedData">
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import LoadExcelFile from "@/components/LoadExcelFile";
 
 export default {
+  data() {
+    return {
+      exportedData: []
+    };
+  },
   name: "home",
   components: {
-    HelloWorld
+    LoadExcelFile
+  },
+  methods: {
+    printExported(exportedData) {
+      this.exportedData = exportedData;
+    }
+  },
+  watch: {
+    exportedData: function() {}
   }
 };
 </script>
