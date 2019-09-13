@@ -27,16 +27,28 @@ export default {
     },
     parseSchedule() {
       for (let shift = 0; shift < this.content.length; shift++) {
-        //dzień miesiąca
-        if (shift % 4 === 0) this.toExport.push(`Dzień ${shift / 4 + 1}`);
-        //8-16
-        else if (shift % 4 === 1 && this.keys[shift].length === 0)
-          this.toExport.push("Weekend");
-        else if (shift % 4 === 1) this.toExport.push(this.keys[shift]);
-        //7-19
-        else if (shift % 4 === 2) this.toExport.push(this.keys[shift]);
-        //19-7
-        else if (shift % 4 === 3) this.toExport.push(this.keys[shift]);
+        switch (shift % 4) {
+          case 0:
+            {
+              this.day = {
+                date: `${shift / 4 + 1}`,
+                "8-16": null,
+                "7-19": null,
+                "19-7": null
+              };
+            }
+            break;
+          case 1:
+            this.day["8-16"] = this.keys[shift];
+            break;
+          case 2:
+            this.day["7-19"] = this.keys[shift];
+            break;
+          case 3:
+            this.day["19-7"] = this.keys[shift];
+            this.toExport.push(this.day);
+            break;
+        }
       }
       this.$emit("export", this.toExport);
     },
@@ -54,10 +66,11 @@ export default {
   },
   watch: {
     file: function() {
-      xlsxParser.onFileSelection(this.file).then(data => {
-        this.content = data;
-        this.prepareContext();
-      });
+      (this.content = ""),
+        xlsxParser.onFileSelection(this.file).then(data => {
+          this.content = data;
+          this.prepareContext();
+        });
     }
   }
 };

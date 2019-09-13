@@ -1,17 +1,15 @@
 <template>
   <div class="home">
     <LoadExcelFile @export="printExported" />
-    <ul>
-      <li v-for="item in exportedData">
-        {{ item }}
-      </li>
-    </ul>
+    <MakeiCalFile :shifts="exportedData" />
+    {{ exportedData }}
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import LoadExcelFile from "@/components/LoadExcelFile";
+import MakeiCalFile from "@/components/MakeiCalFile";
 
 export default {
   data() {
@@ -21,7 +19,8 @@ export default {
   },
   name: "home",
   components: {
-    LoadExcelFile
+    LoadExcelFile,
+    MakeiCalFile
   },
   methods: {
     printExported(exportedData) {
