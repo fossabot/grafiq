@@ -1,9 +1,11 @@
 <template>
   <div>
-    <label
-      >Plik
-      <input type="file" id="file" ref="file" @change="handleFileUpload()" />
-    </label>
+    <input
+      type="file"
+      id="file"
+      ref="file"
+      @change="handleFileUpload()"
+    />
   </div>
 </template>
 
