@@ -1,8 +1,11 @@
 <template>
-  <div class="content-title-group">
-    <router-link :to="routePath">
-      <h2 class="title">{{ title }}</h2>
-    </router-link>
+  <v-item-group>
+    <div class="purple text-center">
+      <span class="white--text">
+        <h2 class="title">{{ title }}</h2>
+      </span>
+    </div>
+
     <button class="button add-button" @click="handleAdd" aria-label="add">
       <i class="fas fa-plus" aria-hidden="true"></i>
     </button>
@@ -13,7 +16,7 @@
     >
       <i class="fas fa-sync" aria-hidden="true"></i>
     </button>
-  </div>
+  </v-item-group>
 </template>
 
 <script>

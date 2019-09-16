@@ -1,10 +1,11 @@
 <template>
-  <div class="card-content">
-    <div class="content">
-      <div class="name">{{ name }}</div>
-      <div class="working-hours">{{ workingHours }}</div>
-    </div>
-  </div>
+  <v-card class="col-md-4">
+    <v-card-title>{{ name }}</v-card-title>
+    <v-card-text>{{ workingHours }}</v-card-text>
+    <v-card-actions>
+      <v-btn text>aa</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>

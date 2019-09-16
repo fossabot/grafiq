@@ -4,12 +4,11 @@
       "id": 1,
       "name": "Janusz Kopytko",
       "workingHours": "3/4"
-    }
-  ],
-  "pupcia": [
+    },
     {
-      "id": 12,
-      "name": "Kupsko"
+      "id": 2,
+      "name": "Pietrek Kogucik",
+      "workingHours": "5/8"
     }
   ]
 }

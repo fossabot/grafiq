@@ -32,7 +32,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app color="purple" dark>
+    <v-app-bar app color="purple darken-2" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Pan Grafan</v-toolbar-title>
     </v-app-bar>
@@ -41,7 +41,7 @@
         <router-view></router-view>
       </v-container>
     </v-content>
-    <v-footer color="purple" dark app>
+    <v-footer color="purple darken-2" dark app>
       <span class="white--text">&copy; 2073</span>
     </v-footer>
   </v-app>
