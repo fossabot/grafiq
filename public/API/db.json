@@ -1,0 +1,15 @@
+{
+  "staff": [
+    {
+      "id": 1,
+      "name": "Janusz Kopytko",
+      "workingHours": "3/4"
+    }
+  ],
+  "pupcia": [
+    {
+      "id": 12,
+      "name": "Kupsko"
+    }
+  ]
+}

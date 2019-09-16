@@ -1,3 +1,7 @@
+<template>
+  <span>&nbsp;</span>
+</template>
+
 <script>
 import moment from "moment-timezone";
 moment.tz.setDefault("Europe/Warsaw");
