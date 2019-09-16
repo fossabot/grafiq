@@ -1,7 +1,7 @@
 <template>
-  <ul class="list">
-    <li v-for="(person, index) in staff" :key="person.id" role="presentation">
-      <div class="card">
+  <v-container class="pa-2 mx-auto">
+    <v-row>
+      <v-col v-for="(person, index) in staff" :key="person.id" :cols="4">
         <CardContent :name="person.name" :workingHours="person.workingHours">
           <footer class="card-footer">
             <ButtonFooter
@@ -24,9 +24,9 @@
             />
           </footer>
         </CardContent>
-      </div>
-    </li>
-  </ul>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

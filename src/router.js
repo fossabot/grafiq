@@ -25,7 +25,7 @@ export default new Router({
     {
       path: "/staff",
       name: "staff",
-      component: () => import(/*webpackChunkName: "staff */ "./views/Staff.vue")
+      component: () => import(/*webpackChunkName: "staff" */ "./views/Staff.vue")
     }
   ]
 });

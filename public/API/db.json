@@ -9,6 +9,16 @@
       "id": 2,
       "name": "Pietrek Kogucik",
       "workingHours": "5/8"
+    },
+    {
+      "id": 3,
+      "name": "Renata Papilot",
+      "workingHours": "pełny etat"
+    },
+    {
+      "id": 4,
+      "name": "Wojciech Mann",
+      "workingHours": "1/2"
     }
   ]
 }
