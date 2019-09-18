@@ -1,4 +1,6 @@
 # grafik
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkapwilczynski%2Fgrafiq.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkapwilczynski%2Fgrafiq?ref=badge_shield)
+
 
 ## Project setup
 ```
@@ -27,3 +29,7 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkapwilczynski%2Fgrafiq.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkapwilczynski%2Fgrafiq?ref=badge_large)
