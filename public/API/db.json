@@ -19,6 +19,11 @@
       "id": 4,
       "name": "Wojciech Mann",
       "workingHours": "1/2"
+    },
+    {
+      "id": 5,
+      "name": "Zbigniew Biodro",
+      "workingHours": "umowa zlecenie"
     }
   ]
 }

@@ -1,24 +1,53 @@
 <template>
   <v-card class="col-md-4">
-    <v-card-title>{{ name }}</v-card-title>
-    <v-card-text>{{ workingHours }}</v-card-text>
+    <v-card-title>{{ person.name }}</v-card-title>
+    <v-card-text>{{ person.workingHours }}</v-card-text>
     <v-card-actions>
-      <v-btn text>aa</v-btn>
+      <v-container fluid class="pa-0">
+        <v-row>
+          <ButtonFooter
+            class="delete-item"
+            iconClasses="mdi-delete"
+            label="Usuń"
+            :dataId="person.id"
+            dataIndex="index"
+            :item="person"
+            @clicked="deletePerson"
+          ></ButtonFooter>
+          <ButtonFooter
+            class="edit-item"
+            iconClasses="mdi-edit"
+            label="Edytuj"
+            :dataId="person.id"
+            dataIndex="index"
+            :item="person"
+            @clicked="editPerson"
+          ></ButtonFooter>
+        </v-row>
+      </v-container>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import ButtonFooter from "./button-footer";
 export default {
   name: "CardContent",
+  components: { ButtonFooter },
   props: {
-    name: {
-      type: String,
-      default: () => ""
+    person: {
+      type: Object,
+      default() {}
+    }
+  },
+  methods: {
+    deletePerson(person) {
+      console.log(`Trying to delete ${person.name}`);
+      this.$parent.$emit("deleted", person);
     },
-    workingHours: {
-      type: String,
-      default: () => ""
+    editPerson(person) {
+      console.log(`Editing ${person.name}`);
+      this.$parent.$emit("edited", person);
     }
   }
 };
