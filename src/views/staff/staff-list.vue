@@ -1,7 +1,12 @@
 <template>
   <v-container class="pa-2 mx-auto">
     <v-row>
-      <v-col v-for="(person, index) in staff" :key="person.id" :cols="4">
+      <v-col
+        v-for="(person, index) in staff"
+        :key="person.id"
+        :cols="cols"
+        v-resize="onResize"
+      >
         <CardContent :person="person" :index="index"></CardContent>
       </v-col>
     </v-row>
@@ -10,9 +15,16 @@
 
 <script>
 import CardContent from "@/components/staff/card-content.vue";
+import { rescaleCards } from "../../shared/mixins";
 
 export default {
   name: "StaffList",
+  mixins: [rescaleCards],
+  data() {
+    return {
+      cols: 3
+    };
+  },
   props: {
     staff: {
       type: Array,
@@ -22,6 +34,9 @@ export default {
   components: {
     CardContent
   },
+  mounted() {
+    this.onResize();
+  },
   methods: {
     deletePerson(person) {
       this.$emit("deleted", person);
@@ -29,6 +44,10 @@ export default {
     },
     selectPerson(person) {
       this.$emit("selected", person);
+      console.log(`You tried to select ${person.name}`);
+    },
+    onResize() {
+      this.rescaleCardsOnResize();
     }
   }
 };

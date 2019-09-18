@@ -7,7 +7,7 @@
         <v-row>
           <ButtonFooter
             class="delete-item"
-            iconClasses="mdi-delete"
+            iconClass="mdi-remove"
             label="Usuń"
             :dataId="person.id"
             dataIndex="index"
@@ -16,12 +16,12 @@
           ></ButtonFooter>
           <ButtonFooter
             class="edit-item"
-            iconClasses="mdi-edit"
+            iconClass="mdi-edit"
             label="Edytuj"
             :dataId="person.id"
             dataIndex="index"
             :item="person"
-            @clicked="editPerson"
+            @clicked="selectPerson"
           ></ButtonFooter>
         </v-row>
       </v-container>
@@ -45,9 +45,9 @@ export default {
       console.log(`Trying to delete ${person.name}`);
       this.$parent.$emit("deleted", person);
     },
-    editPerson(person) {
+    selectPerson(person) {
       console.log(`Editing ${person.name}`);
-      this.$parent.$emit("edited", person);
+      this.$parent.$emit("selected", person);
     }
   }
 };

@@ -15,12 +15,12 @@
           @deleted="askToDelete($event)"
           @selected="select($event)"
         ></StaffList>
-        <StaffDetail
+        <PersonDetail
           v-if="selected"
-          :hero="selected"
+          :person="selected"
           @unselect="clear"
           @save="save"
-        ></StaffDetail>
+        ></PersonDetail>
       </div>
     </div>
     <Modal

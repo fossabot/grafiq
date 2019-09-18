@@ -1,49 +1,52 @@
 <template>
-  <div class="card edit-detail">
-    <header class="card-header">
-      <p class="card-header-title">{{ editingPerson.name }}</p>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        <div class="field">
-          <label class="label" for="name">Imię</label>
-          <input
-            class="input"
-            name="name"
-            placeholder="e.g. Edward Zabbix"
-            type="text"
-            v-model="editingPerson.name"
-          />
-        </div>
-        <div class="field">
-          <input
-            class="input"
-            name="workingHours"
-            type="select"
-            v-model="editingPerson.workingHours"
-          />
-        </div>
-      </div>
-    </div>
-    <footer class="card-footer">
-      <ButtonFooter
-        class="card-footer-item"
-        label="Anuluj"
-        :className="'cancel-button'"
-        :iconClasses="'fas fa-undo'"
-        :item="editingPerson"
-        @clicked="clear"
-      ></ButtonFooter>
-      <ButtonFooter
-        class="card-footer-item"
-        label="Zapisz"
-        :className="'save-button'"
-        :iconClasses="'fas fa-save'"
-        :item="editingPerson"
-        @clicked="savePerson"
-      ></ButtonFooter>
-    </footer>
-  </div>
+  <v-card>
+    <v-card-title>
+      {{ editingPerson.name }}
+    </v-card-title>
+    <v-card-text>
+      <v-form v-model="valid">
+        <v-container>
+          <v-row>
+            <v-col cols="12" md="4">
+              <v-text-field
+                v-model="editingPerson.name"
+                placeholder="np. Edward Zabbix"
+                label="Imię i nazwisko operatora"
+                :rules="nameRules"
+                required
+              ></v-text-field>
+              <v-select
+                v-model="editingPerson.workingHours"
+                :items="workingHoursOptions"
+                label="Wymiar czasu pracy"
+                required
+              ></v-select>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-form>
+    </v-card-text>
+    <v-card-actions>
+      <v-container fluid class="pa-0">
+        <v-row>
+          <ButtonFooter
+            label="Anuluj"
+            :className="'cancel-button'"
+            iconClass="mdi-cancel"
+            :item="editingPerson"
+            @clicked="clear"
+          ></ButtonFooter>
+          <ButtonFooter
+            label="Zapisz"
+            :className="'save-button'"
+            iconClass="mdi-save"
+            :item="editingPerson"
+            @clicked="savePerson"
+          ></ButtonFooter>
+        </v-row>
+      </v-container>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -63,7 +66,17 @@ export default {
   data() {
     return {
       addMode: false,
-      editingPerson: { ...this.person }
+      editingPerson: { ...this.person },
+      valid: false,
+      nameRules: [v => !!v || "Imie i nazwisko są wymagane!"],
+      workingHoursOptions: [
+        "pełny etat",
+        "7/8 etatu",
+        "3/4 etatu",
+        "5/8 etatu",
+        "1/2 etatu",
+        "umowa zlecenie"
+      ]
     };
   },
   watch: {
@@ -81,7 +94,7 @@ export default {
     savePerson() {
       this.$emit("save", this.editingPerson);
       this.clear();
-    }
+    },
   }
 };
 </script>

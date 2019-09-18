@@ -53,7 +53,7 @@ export default {
     },
     async updatePersonAction({ commit }, person) {
       try {
-        const response = await axios.post(`${API}/staff/${person.id}`, person);
+        const response = await axios.put(`${API}/staff/${person.id}`, person);
         const updatedPerson = parseItem(response, 200);
         commit(UPDATE_PERSON, updatedPerson);
         return updatedPerson;
@@ -63,7 +63,7 @@ export default {
     },
     async addPersonAction({ commit }, person) {
       try {
-        const response = await axios.post(`${API}/staff/${person.id}`, person);
+        const response = await axios.post(`${API}/staff/`, person);
         const addedPerson = parseItem(response, 201);
         commit(ADD_PERSON, addedPerson);
         return addedPerson;

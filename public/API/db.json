@@ -3,12 +3,12 @@
     {
       "id": 1,
       "name": "Janusz Kopytko",
-      "workingHours": "3/4"
+      "workingHours": "3/4 etatu"
     },
     {
       "id": 2,
       "name": "Pietrek Kogucik",
-      "workingHours": "5/8"
+      "workingHours": "7/8 etatu"
     },
     {
       "id": 3,
@@ -18,7 +18,7 @@
     {
       "id": 4,
       "name": "Wojciech Mann",
-      "workingHours": "1/2"
+      "workingHours": "1/2 etatu"
     },
     {
       "id": 5,

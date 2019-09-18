@@ -9,7 +9,7 @@
       :data-index="dataIndex"
       :data-id="dataId"
     >
-      <i :class="iconClasses"></i>
+      <v-icon>{{ iconClass }}</v-icon>
       <span>{{ label }}</span>
     </v-btn>
   </v-col>
@@ -39,7 +39,7 @@ export default {
       type: Number,
       default: () => null
     },
-    iconClasses: {
+    iconClass: {
       type: String,
       default: () => ""
     }
